@@ -13,7 +13,7 @@ body {
 .navigation-bar {
     height: 100px;
     max-width: 90%;
-    /* centrira  div */
+    /* centrira  div, isto margina left and right */
     margin-left: auto;
     margin-right: auto;
     border-bottom: 1px solid #e5e5e5;
@@ -21,8 +21,10 @@ body {
 
 .header-flex
 {
+    /* block by defualt,*/
     display: flex;
     align-items: center;
+    /* isti spacing med elementi*/
     justify-content: space-between;
 }
 
@@ -30,6 +32,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    /* zavzame max perant, ali kok placa lahko*/
     flex: 1;
 }
 
@@ -97,9 +100,10 @@ li a {
     max-width: 90%;
     margin-left: auto;
     margin-right: auto;
-    margin: 30px auto;
+    margin: 20px auto;
     padding: 50px;
     padding-top: 20px;
+    padding-bottom: 20px;
     gap: 0px; /* spacing between columns */
 }
 .column-text {
@@ -181,32 +185,27 @@ li a {
 }
 
 .b2b-container {
-    max-width: 70%;
+    max-width: 65%;
     /* centrira  div */
     margin-left: auto;
     margin-right: auto;
     margin: 40px auto;
     text-align: left;
 }
-.first-row img,
-.second-row img {
-    flex-basis: 50%;
-    max-width: 47%;
-    height: auto;
-    object-fit: contain;
-    border-radius: 25px;
-}
-.second-row img {
-    border-radius: 25px 25px 25px 150px;
-}
-
-.first-row,
-.second-row {
+.first-row {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 40px;
-    margin-bottom: 40px;
+    gap: 60px;
+    margin-bottom: 60px;
+}
+.wrapperslikaena{
+    flex: 1;
+}
+.wrapperslikaena img{
+    width:100%;
+    height: 100%;
+    border-radius: 25px;
+    object-fit: cover;
+    display: flex;
 }
 .b2b-container #b2-header {
     color: #2A454C;
@@ -218,6 +217,25 @@ li a {
     color: #226776;
     margin-bottom: 10px;
 }
+.b2b-text{
+    flex: 1;
+    width: 100%;
+}
+.wrapperslikadva{
+    flex: 1;
+}
+.wrapperslikadva img{
+    width: 100%;
+    height: 100%;
+    border-radius: 25px 25px 25px 150px;
+    object-fit: cover;
+    display: flex;
+}
+.second-row {
+    display: flex;
+    gap: 60px;
+    margin-bottom: 20px;
+}
 
 .b2b-container button {
     background-color: transparent;
@@ -226,7 +244,8 @@ li a {
     border-radius: 8px;
     text-align: center;
     font-size: 16px;
-    margin: 30px 0px;
+    margin-top: 30px;
+    margin-bottom: 10px;
     font-family: inherit;
     font-weight: bold;
 }
@@ -343,9 +362,8 @@ input[type="checkbox"] {
 }
 
 .contactform-container .info-row {
-    width: 400px;
-    height: 85px;
     display: flex;
+    flex-basis: 35%;
     justify-content: space-between;
     align-items: center;
     background-color: #F0F3F5;
@@ -388,7 +406,7 @@ input[type="checkbox"] {
 
 .contact-form {
     width: 100%;
-    flex: 1;
+    flex-basis: 65%;
     display: flex;
     flex-direction: column;
     background-color: #F0F3F5;
@@ -396,6 +414,9 @@ input[type="checkbox"] {
     padding: 40px;
     padding-top: 50px;
     padding-bottom: 10px;
+}
+.contactform-container .contact-info {
+    width: 35%;
 }
 .contact-form .form-row {
     display: flex;
@@ -463,7 +484,6 @@ select {
     margin: 30px 0px;
     font-family: inherit;
     margin-left: 10px;
-    font-weight: bold;
 }
 .form-footer {
     display: flex;
@@ -565,10 +585,20 @@ select {
 }
 
 .faq-container {
-    max-width: 80%;
+    max-width: 70%;
     margin: 60px auto;
     display: flex;
     gap: 20px;
+}
+
+.faq-glavno img {
+    max-width: 100%;
+    padding-top: 20px;
+    height: auto;
+    display: block;
+}
+.faq-container .faq-glavno{
+    flex-basis: 50%;
 }
 .faq-container .faq-glavno #mainp {
     font-size: 35px;
@@ -582,6 +612,7 @@ select {
     line-height: 1.2;
     font-weight: 400;
     padding-top: 30px;
+    max-width: 498px;
 }
 
 .faq-questions h1 {
@@ -597,6 +628,20 @@ select {
     display: flex;
     justify-content: space-between;
     padding-bottom: 50px;
+}
+@media (max-width: 768px) {
+    .faq-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .faq-glavno,
+    .faq-questions {
+        width: 100%;
+    }
+    #faqbubbless {
+        max-width: 80%;
+        height: auto;
+    }
 }
 
 .odgovoriti-bottom {
@@ -625,6 +670,16 @@ select {
     margin-left: 30px;
     font-weight: 500;
 }
+@media (max-width: 768px) {
+    .odgovoriti-bottom {
+        flex-direction: column;
+        align-items: center;
+    }
+    .odgovoriti-bottom button {
+        max-width: 80%;
+        height: auto;
+    }
+}
 .footer {
     max-width: 100%;
     padding: 100px;
@@ -642,6 +697,17 @@ select {
     padding-left: 15px;
     padding-right: 15px;
 }
+.footer-menu ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.footer-menu li {
+    margin: 5px 5px; /* razmak pri mobile viewu */
+}
 
 #last {
     border-right: none;
@@ -656,4 +722,56 @@ select {
 }
 #footerlogo {
     max-height: 27px;
+}
+
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 10px;
+        text-align: center;
+    }
+    .footer-menu ul {
+        justify-content: center;
+    }
+    .footer-menu .footer-icons {
+        justify-content: center;
+    }
+    #footerlogo {
+        margin-bottom: 20px;
+    }
+}
+@media (max-width: 768px) {
+    .first-row,
+    .second-row {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 10px;
+        text-align: center;
+    }
+    .second-row {
+        flex-direction: column-reverse;
+    }
+    .b2b-text{
+        text-align: left;
+    }
+}
+@media (max-width: 768px) {
+    .column-section {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+    .column-text {
+        flex-basis: 100%;
+        text-align: center;
+    }
+    .column-slika img {
+        width: 100%;
+        height: auto;
+    }
+    .narocniki-slike {
+        flex-direction: column;
+        align-items: center;
+    }
 }
