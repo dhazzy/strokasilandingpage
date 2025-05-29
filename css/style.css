@@ -1,0 +1,88 @@
+/*
+https://www.w3schools.com/css/css3_flexbox.asp
+https://www.w3schools.com/html/html5_video.asp
+https://www.w3schools.com/css/css3_object-fit.asp
+
+*/
+
+
+* {
+    margin: 0; /*Resets browser default spacing */
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: white;
+    font-family: Outfit;
+    padding: 20px;
+}
+
+.navigation-bar {
+    height: 100px;
+    max-width: 90%;
+    /* centrira  div */
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.header-flex
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+}
+
+.nav-left ul,
+.nav-right ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+li {
+    display: inline;
+}
+li a {
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    size: 16px;
+}
+
+.logo {
+    float: left;
+    padding-right: 70px;
+}
+
+#EN {
+    padding-left: 20px;
+    background-image: url('/assets/united-kingdom.png');
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 18px 18px; /* icon size */
+}
+
+.narocniki-container {
+    max-width: 90%;
+    /* centrira  div */
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    justify-content: center;
+}
+.narocniki-container p {
+    font-size: 35px;
+    align-items: center;
+}
+.narocniki-container p b {
+    color: #02485D;
+}
