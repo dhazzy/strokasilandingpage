@@ -1,12 +1,3 @@
-
-/*
-https://www.w3schools.com/css/css3_flexbox.asp
-https://www.w3schools.com/html/html5_video.asp
-https://www.w3schools.com/css/css3_object-fit.asp
-
-*/
-
-
 * {
     margin: 0; /*Resets browser default spacing */
     padding: 0;
@@ -187,4 +178,98 @@ li a {
 
 .text-stroka #naslov b {
     color: #02485D;
+}
+
+.b2b-container {
+    max-width: 70%;
+    /* centrira  div */
+    margin-left: auto;
+    margin-right: auto;
+    margin: 40px auto;
+    text-align: left;
+}
+.first-row img,
+.second-row img {
+    flex-basis: 50%;
+    max-width: 47%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 25px;
+}
+.second-row img {
+    border-radius: 25px 25px 25px 150px;
+}
+
+.first-row,
+.second-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+.b2b-container #b2-header {
+    color: #2A454C;
+    font-size: 22px;
+    padding-top: 20px;
+}
+.b2b-container label {
+    font-size: 14px;
+    color: #226776;
+    margin-bottom: 10px;
+}
+
+.b2b-container button {
+    background-color: transparent;
+    border: 2px solid rgba(128, 128, 128, 0.25);
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 16px;
+    margin: 30px 0px;
+    font-family: inherit;
+    font-weight: bold;
+}
+.iconb2 {
+    width: 50px;
+    height: 60px;
+    margin-right: 10px;
+    background-color: #226776;
+    border-radius: 5px 5px 5px 23px;
+    display: flex;
+}
+.iconb2 img {
+    width: 20px;
+    height: 20px;
+    border-radius: 0px;
+    text-align: center;
+    margin: auto;
+}
+.iconb2 span {
+    padding-left: 50px;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center; /* vertical centering */
+    gap: 12px; /* space between icon and text */
+}
+.b2b-container .text-column span {
+    color: #226776;
+    font-size: 16px;
+}
+
+#dummytext {
+    color: #2A454C;
+    line-height: 1.4;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+input[type="checkbox"] {
+  margin-right: 8px; /* Adjust the value as needed */
+}
+#b2bicon2 {
+    height: 16px;
+    width: 18px;
 }
