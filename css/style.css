@@ -1,3 +1,4 @@
+
 /*
 https://www.w3schools.com/css/css3_flexbox.asp
 https://www.w3schools.com/html/html5_video.asp
@@ -76,13 +77,26 @@ li a {
     /* centrira  div */
     margin-left: auto;
     margin-right: auto;
-    align-items: center;
-    justify-content: center;
+    margin: 20px auto;
+    text-align: center;
 }
+
 .narocniki-container p {
     font-size: 35px;
-    align-items: center;
+    margin-bottom: 30px;
 }
 .narocniki-container p b {
     color: #02485D;
+}
+
+.narocniki-slike {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* allows wrapping on smaller screens */
+    gap: 60px;
+}
+.narocniki-slike img {
+    height: auto;
+    object-fit: contain;
 }
