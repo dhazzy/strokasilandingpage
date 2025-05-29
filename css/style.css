@@ -104,8 +104,11 @@ li a {
 .column-section {
     display: flex;
     max-width: 90%;
-    margin: 60px auto;
-    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin: 30px auto;
+    padding: 50px;
+    padding-top: 20px;
     gap: 0px; /* spacing between columns */
 }
 .column-text {
@@ -159,4 +162,29 @@ li a {
     flex-direction: column;
     justify-content: flex-start; /* Ensures text stacks from the top */
     padding-top: 5px;
+}
+
+.text-stroka {
+    display: flex;
+    flex-direction: column;
+    max-width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 12px;
+    margin-bottom: 32px;
+    text-align: center;
+}
+.text-stroka p {
+    font-size: 16px;
+    color: #2A454C;
+    line-height: 1.5;
+}
+.text-stroka #naslov {
+    font-size: 35px;
+    margin-bottom: 20px;
+    color: black;
+}
+
+.text-stroka #naslov b {
+    color: #02485D;
 }
