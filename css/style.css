@@ -628,6 +628,7 @@ select {
 .footer {
     max-width: 100%;
     padding: 100px;
+    padding-bottom: 50px;
     background-color: #333333;
     display:flex;
     justify-content: space-between;
@@ -636,7 +637,10 @@ select {
     color:#F5F5F5;
     font-size: 16px;
     font-weight: 500;
-    border-right: 1px solid white;
+    border-right: 1px solid #767676;
+    padding: 3px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 #last {
@@ -647,4 +651,9 @@ select {
     display: flex;
     align-items: center;
     gap: 40px;
+    padding-top: 40px;
+    padding-left: 15px;
+}
+#footerlogo {
+    max-height: 27px;
 }
