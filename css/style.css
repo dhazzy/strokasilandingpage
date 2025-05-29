@@ -563,3 +563,88 @@ select {
     margin-right: 7px;
     padding-top: 1px;
 }
+
+.faq-container {
+    max-width: 80%;
+    margin: 60px auto;
+    display: flex;
+    gap: 20px;
+}
+.faq-container .faq-glavno #mainp {
+    font-size: 35px;
+}
+.faq-container .faq-glavno p b {
+    color: #02485D
+}
+.faq-container .faq-glavno #secondp {
+    font-size: 16px;
+    color: #2A454C;
+    line-height: 1.2;
+    font-weight: 400;
+    padding-top: 30px;
+}
+
+.faq-questions h1 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #02485D;
+}
+
+.faq-questions .question-row p {
+    padding-top: 10px;
+}
+.faq-questions .question-row {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 50px;
+}
+
+.odgovoriti-bottom {
+    max-width: 100%;
+    display: flex;
+    gap: 20px;
+    padding: 60px;
+    padding-left: 100px;
+    background-color: #F3F4F6;
+}
+.odgovoriti-bottom h1 {
+    font-size: 35px;
+    color: #2A454C;
+    font-weight: 700;
+}
+
+.odgovoriti-bottom button {
+    background-color: #F9F9F9;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 16px;
+    font-family: inherit;
+    margin-left: 30px;
+    font-weight: 500;
+}
+.footer {
+    max-width: 100%;
+    padding: 100px;
+    background-color: #333333;
+    display:flex;
+    justify-content: space-between;
+}
+.footer .footer-menu a {
+    color:#F5F5F5;
+    font-size: 16px;
+    font-weight: 500;
+    border-right: 1px solid white;
+}
+
+#last {
+    border-right: none;
+}
+
+.footer .footer-menu .footer-icons {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
