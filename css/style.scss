@@ -1,0 +1,922 @@
+$primaryColor: #02485D;
+$secondaryColor: #2A454C;
+$containerbackgroundColor: #F0F3F5;
+$primaryFont: Outfit;
+
+@mixin flexAligment($xalignment, $yalignment) {
+    display: flex;
+    /*main axis*/
+    justify-content: $xalignment;
+    /*cross axis*/
+    align-items: $yalignment;
+}
+
+@mixin flexDirection($direction) {
+    display:flex;
+    flex-direction: $direction;
+}
+
+@mixin maxWidth($maxWidth, $marginTopBottom: null) {
+    max-width: $maxWidth;
+    /* centrira  div, isto margina left and right */
+    @if $marginTopBottom == null {
+        margin-left: auto;
+        margin-right: auto;
+    } @else {
+        margin: $marginTopBottom auto;
+    }
+}
+
+@mixin mobile {
+    @media (max-width: 930px) {
+        @content;
+    }
+}
+@mixin opencloseButton {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+* {
+    /*Resets browser default spacing */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $primaryFont;
+    background-color: white;
+}
+
+.navigation-container {
+    @include maxWidth(90%);
+    @include flexAligment(space-between, center);
+    height: 100px;
+    border-bottom: 1px solid #e5e5e5;
+    .navigationbar {
+        @include flexAligment(space-between, center);
+        flex: 1;
+        ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+            li {
+                display: inline;
+                a {
+                    text-decoration: none;
+                    color: black;
+                    padding: 10px;
+                    font-size: 16px;
+                    font-weight: 400;
+                }
+            }
+            #en {
+                padding-left: 20px;
+                background-image: url('/assets/united-kingdom.png');
+                background-repeat: no-repeat;
+                background-position: left center;
+                background-size: 18px 18px;
+            }
+        }
+        @include mobile {
+            display: none;
+        }
+    }
+    .logo {
+        float: left;
+        padding-right: 70px;
+    }
+}
+// z-index določanje plasti za overlay/backround colour
+.burger-button {
+    display: none;
+    @include opencloseButton();
+    right: 25px;
+    z-index: 1001;
+    @include mobile {
+        display: block;
+    }
+}
+
+.menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    height: 100%;
+    background-color: white;
+    z-index: 1002;
+    transition: right 0.3s ease-in-out;
+    padding: 20px;
+    @include flexDirection(column);
+    .mobile-menu-header {
+        @include flexAligment(space-between, center);
+        margin-bottom: 30px;
+        .close-button {
+            @include opencloseButton;
+        }
+    }
+    .language-selector {
+        margin-bottom: 30px;
+        a {
+            color: black;
+            text-decoration: none;
+        }
+    }
+    .mobile-nav {
+        @include flexDirection(column);
+        gap: 15px;
+        margin-bottom: 30px;
+        a {
+            text-decoration: none;
+            color: black;
+            font-size: 16px;
+        }
+    }
+    .mobilemenu-icons {
+        @include flexAligment(center, center);
+        gap: 35px;
+    }
+}
+
+// important za override,
+// right: 0 menu odprema na desno stran
+.menu-open {
+    right: 0 !important;
+}
+
+.overlay-visible {
+    display: block !important;
+}
+
+.mobilnost-container {
+    @include maxWidth(90%, 40px);
+    padding-bottom: 20px;
+    @include flexAligment(center, center);
+    .image-container{
+        position: relative;
+        overflow: hidden;
+        border-radius: 28px;
+        img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            display: block;
+        }
+    }
+    .text-side{
+        position: absolute;
+        left: 90px;
+        bottom: 70px;
+        width: min(90%, 500px);
+        color: white;
+        text-align: left;
+        #mobilnostheader{
+            font-size: clamp(15px, 4vw, 55px);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        #mobilnostheader2{
+            font-size: clamp(8px, 2vw, 35px);
+            font-weight: 400;
+            margin-bottom: 30px;
+            color: #D9D9D9;
+        }
+        #mobilnosttext, #mobilnosttext2{
+            font-size: clamp(6px, 2vw, 22px);
+            font-weight: 400;
+            margin-bottom: 3px;
+        }
+        .buttonmobilnost{
+            background-color: #F9F9F9;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 16px;
+            font-size: clamp(8px, 2vw, 16px);
+            margin-top: 30px;
+            font-family: inherit;
+            color: black;
+            font-weight: 500;
+        }
+        .buttons-side {
+            position: absolute;
+            right: 90px;
+            bottom: 60px;
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            @include mobile {
+                right: 20px;
+                bottom: 20px;
+                gap: 12px;
+            }
+        }
+        .button-right {
+            width: 150px;
+            height: 50px;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: transparent;
+            display: flex;
+            @include mobile {
+                width: 80px;
+                height: 80px;
+            }
+        }
+        @include mobile {
+            bottom: 20px;
+            left: 20px;
+            width: 90%;
+        }
+    }
+}
+.narocniki-container {
+    @include  maxWidth(90%);
+    @include  flexDirection(column);
+    margin: 20px auto;
+    text-align: center;
+    p {
+        font-size: 35px;
+        margin-bottom: 30px;
+        b {
+            color: #02485D;
+        }
+    }
+    .narocniki-slike {
+        @include flexAligment(center, center);
+        flex-wrap: wrap; /* prilagaja širini */
+        gap: 40px;
+        img {
+            height: auto;
+            object-fit: contain;
+        }
+    }
+}
+.column-section {
+    @include maxWidth(90%);
+    @include flexAligment(center, row);
+    flex: wrap;
+    margin: 50px auto;
+    gap: 50px; /* spacing med stoplci */
+    .column-slika{
+        flex: 1;
+        img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            @include mobile {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+    .column-text {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        #header {
+            font-size: 35px;
+            font-weight: 400;
+            padding-bottom: 40px;
+            b{
+                color: #02485D;
+            }
+        }
+        .text-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 32px;
+            p {
+                color: #1F2A37;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 1.5;
+            }
+            b {
+                color: #02485D;
+                font-size: 18px;
+                font-weight: 700;
+                padding-left: 16px;
+            }
+            img {
+                width: 38px;
+                height: 38px;
+                object-fit: contain;
+                margin-top: 5px;
+            }
+            .text-content {
+                @include flexDirection(column);
+                justify-content: flex-start;
+                padding-top: 5px;
+            }
+        }
+        @include mobile {
+            flex-basis: 100%;
+        }
+    }
+    @include mobile {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+}
+.text-stroka {
+    @include flexDirection(column);
+    @include maxWidth(70%);
+    margin-bottom: 32px;
+    text-align: center;
+    p {
+        font-size: 16px;
+        color: #2A454C;
+        line-height: 1.5;
+    }
+    #p3 {
+        padding-top: 10px;
+    }
+    #naslov {
+        font-size: 35px;
+        margin-bottom: 20px;
+        color: black;
+        b {
+            color: #02485D;
+        }
+    }
+}
+.b2b-container {
+    @include maxWidth(65%);
+    max-width: 65%;
+    margin: 40px auto;
+    text-align: left;
+    .first-row {
+        display: flex;
+        gap: 60px;
+        margin-bottom: 60px;
+        .wrapperslikaena{
+            flex: 1;
+            img{
+                width:100%;
+                height: 100%;
+                border-radius: 25px;
+                object-fit: cover;
+                display: flex;
+            }
+        }
+        @include mobile {
+            flex-direction: column;
+            align-items: center;
+            padding: 10px 10px;
+            text-align: center;
+        }
+    }
+    #b2-header {
+        color: #2A454C;
+        font-size: 22px;
+        padding-top: 20px;
+    }
+    label {
+        font-size: 14px;
+        color: #226776;
+        margin-bottom: 10px;
+    }
+    .b2b-text{
+        flex: 1;
+        width: 100%;
+        .wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            .iconb2 {
+                width: 50px;
+                height: 60px;
+                margin-right: 10px;
+                background-color: #226776;
+                border-radius: 5px 5px 5px 23px;
+                display: flex;
+                img {
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 0px;
+                    text-align: center;
+                    margin: auto;
+                }
+                span {
+                    padding-left: 50px;
+                }
+            }
+        }
+        @include mobile {
+            text-align: left;
+        }
+    }
+    .wrapperslikadva{
+        flex: 1;
+        img{
+            width: 100%;
+            height: 100%;
+            border-radius: 25px 25px 25px 150px;
+            object-fit: cover;
+            display: flex;
+        }
+    }
+    .second-row {
+        display: flex;
+        gap: 60px;
+        margin-bottom: 20px;
+        #b2bicon2 {
+            height: 16px;
+            width: 18px;
+        }
+        @include mobile {
+            flex-direction: column-reverse;
+            align-items: center;
+            padding: 10px 10px;
+            text-align: center;
+        }
+    }
+    button {
+        background-color: transparent;
+        border: 2px solid rgba(128, 128, 128, 0.25);
+        padding: 10px 20px;
+        border-radius: 8px;
+        text-align: center;
+        font-size: 16px;
+        margin-top: 30px;
+        margin-bottom: 10px;
+        font-family: inherit;
+        font-weight: bold;
+    }
+    .text-column span {
+        color: #226776;
+        font-size: 16px;
+    }
+    #dummytext {
+        color: #2A454C;
+        line-height: 1.4;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    #loremipsum1, #loremipsum2 {
+        margin-top: 8px;
+    }
+}
+.contact-container {
+    @include maxWidth(90%, 40px);
+    text-align: center;
+    background-color: $containerbackgroundColor;
+    border-radius: 25px;
+    padding: 50px;
+    .hearfromyou-container {
+        img {
+            width: 58px;
+            height: 49px;
+        }
+        p {
+            color: #2A454C;
+            padding-top: 15px;
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 1.2;
+        }
+    }
+    #contactheader{
+        color: #2A454C;
+        padding-top: 15px;
+        font-size: 35px;
+    }
+    button {
+        background-color: #F9F9F9;
+        box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        text-align: center;
+        font-size: 16px;
+        margin: 30px 0px;
+        font-family: inherit;
+        color: #2A454C;
+        margin-left: 10px;
+    }
+    #buttonslika1{
+        width: 18px;
+        height: 17px;
+        margin-right: 7px;
+        padding-top: 1px;
+    }
+    #buttonslika2{
+        width: 19.6px;
+        height: 17.5px;
+        margin-right: 7px;
+        padding-top: 1px;
+    }
+}
+.contactform-container {
+    @include maxWidth(80%, 60px);
+    padding: 20px;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    .contact-info  {
+        .info-row {
+            @include flexAligment(space-between, center);
+            flex-basis: 35%;
+            background-color: $containerbackgroundColor;
+            margin-bottom: 20px;
+            padding: 25px;
+            border-radius: 18px;
+            p {
+                margin: 0;
+                font-size: 16px;
+                line-height: 1.4;
+                color: #2A454C;
+            }
+            #mailicon{
+                width: 25.6px;
+                height: 18px;
+                float: right;
+            }
+            #phoneicon {
+                width: 22.1px;
+                height: 22px;
+            }
+            #helpicon {
+                width: 29.7px;
+                height: 26.5px;
+            }
+            img {
+                margin-left: 40px;
+            }
+        }
+        .icon-row {
+            padding-top: 20px;
+            img {
+                margin-right: 40px;
+            }
+            @media (max-width: 1201px) {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+                padding-top: 20px;
+                padding-left: 35px;
+            }
+        }
+    }
+    .contact-form {
+        @include flexDirection(column);
+        width: 100%;
+        flex-basis: 65%;
+        background-color: #F0F3F5;
+        border-radius: 18px;
+        padding: 40px;
+        padding-top: 50px;
+        padding-bottom: 10px;
+        .form-row {
+            display: flex;
+            align-items: center;
+            @media (max-width: 1201px) {
+                flex-direction: column;
+                align-items: stretch;
+                width: 100%;
+            }
+        }
+        input, select, textarea, #checkbox-row{
+            color: #02485D;
+            font-family: inherit;
+            flex: 1;
+            width: auto;
+            padding: 12px 24px;
+            margin-bottom: 15px;
+            margin-right: 10px;
+            border: 1px solid #E6E6E6;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: transparent;
+        }
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none; // removes the default blue glow
+            border: 1px solid #2A454C;
+        }
+        input::placeholder{
+            color: #2A454C;
+            opacity: 1;
+        }
+        .vat-field {
+            max-width: 200px;
+            @media (max-width: 1201px) {
+                max-width: 100%;
+            }
+        }
+        /* remova arrow, custom arrow, z changanim possition da ni zraven roba */
+        select {
+            -webkit-appearance: none;
+            appearance: none;
+        }
+        select {
+            background-image: url("/assets/arrow.png");
+            background-size: 8px;
+            background-repeat: no-repeat;
+            background-position: calc(100% - 17px) center;
+        }
+        .checkbox-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 20px;
+        }
+        #checkbox-row {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        #checkbox-row .title {
+            padding-top: 10px;
+            padding-bottom: 25px;
+        }
+        button {
+            background-color: #F9F9F9;
+            box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 16px;
+            margin: 30px 0px;
+            font-family: inherit;
+            margin-left: 10px;
+        }
+        .form-footer {
+            display: flex;
+            flex-direction: column;
+            margin-top: 10px;
+        }
+        .form-footer-left {
+            display: flex;
+            justify-content: flex-start;
+            padding-left: 20px;
+        }
+        .form-footer-left label {
+            color: #2A454C;
+            line-height: 1.4;
+            font-size: 16px;
+        }
+        .form-footer-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+        @media (max-width: 1201px) {
+            flex-direction: column;
+            align-items: stretch;
+            width: 100%;
+        }
+    }
+    @media (max-width: 1201px) {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+}
+
+.onas-container{
+    @include maxWidth(90%, 60px);
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    .onas {
+        flex-basis: 35%;
+        text-align: center;
+        background-color: #F0F3F5;
+        border-radius: 25px;
+        padding-top: 40px;
+        object-fit: cover;
+        img {
+            width: 41px;
+            height: 52px;
+        }
+        h1 {
+            font-size: 35px;
+            color: #2A454C;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            font-weight: 700;
+        }
+        p {
+            font-size: 16px;
+            color: #2A454C;
+            line-height: 1.2;
+            font-weight: 600;
+        }
+        #buttonslika3{
+            width: 20px;
+            height: 20px;
+            margin-right: 7px;
+            padding-top: 1px;
+        }
+        #buttonslika4{
+            width: 18.37px;
+            height: 16px;
+            margin-right: 7px;
+            padding-top: 1px;
+        }
+        @include mobile {
+            flex-basis: 100%;
+            text-align: center;
+            padding: 20px;
+            padding-bottom: 0px;
+        }
+    }
+    .location {
+        flex-basis: 65%;
+        display: flex;
+        img {
+            width: 100%;
+            max-height: 350px;;
+            object-fit: cover;
+            border-radius: 18px;
+        }
+    }
+    button {
+        background-color: #F9F9F9;
+        box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        text-align: center;
+        font-size: 16px;
+        margin: 30px 0px;
+        font-family: inherit;
+        margin-left: 10px;
+        color: #2A454C;
+        font-weight: 500;
+        height: auto;
+        min-height: 50px;
+    }
+    @include mobile {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+.faq-container {
+    @include maxWidth(70%, 60px);
+    display: flex;
+    gap: 20px;
+    .faq-glavno{
+        flex-basis: 50%;
+        img {
+            max-width: 100%;
+            padding-top: 20px;
+            height: auto;
+            display: block;
+        }
+        #mainp {
+            font-size: 35px;
+        }
+        p b {
+            color: #02485D
+        }
+        #secondp {
+            font-size: 16px;
+            color: #2A454C;
+            line-height: 1.2;
+            font-weight: 400;
+            padding-top: 30px;
+            max-width: 498px;
+        }
+        #faqbubbless {
+            @include mobile(){
+                max-width: 80%;
+                height: auto;
+            }
+        }
+    }
+    .faq-questions {
+        h1{
+            font-size: 18px;
+            font-weight: 700;
+            color: #02485D;
+        }
+        .question-row {
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 50px;
+            p {
+                padding-top: 10px;
+            }
+        }
+        @include mobile(){
+            width: 100%;
+        }
+    }
+    @include mobile {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+.odgovoriti-bottom {
+    max-width: 100%;
+    display: flex;
+    gap: 20px;
+    padding: 60px;
+    padding-left: 100px;
+    background-color: #F3F4F6;
+    h1 {
+        font-size: 35px;
+        color: #2A454C;
+        font-weight: 700;
+    }
+    button {
+        background-color: #F9F9F9;
+        box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        text-align: center;
+        font-size: 16px;
+        font-family: inherit;
+        margin-left: 30px;
+        font-weight: 500;
+        @include mobile() {
+            max-width: 80%;
+            height: auto;
+        }
+    }
+    @include mobile() {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+.footer {
+    max-width: 100%;
+    padding: 100px;
+    padding-bottom: 50px;
+    background-color: #333333;
+    display:flex;
+    justify-content: space-between;
+    #footerlogo {
+        max-height: 27px;
+    }
+    .footer-menu {
+        a {
+            color:#F5F5F5;
+            font-size: 16px;
+            font-weight: 500;
+            border-right: 1px solid #767676;
+            padding: 3px;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            @include mobile {
+                display: none;
+            }
+        }
+        li {
+            margin: 5px 5px; /* razmak pri mobile viewu */
+        }
+        #last {
+            border-right: none;
+        }
+        .footer-icons{
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            padding-top: 40px;
+            padding-left: 15px;
+            @include mobile {
+                padding-top: 60px;
+                justify-content: center;
+            }
+        }
+    }
+    @include mobile {
+        flex-direction: column;
+        align-items: center;
+        padding: 70px;
+        text-align: center;
+    }
+}
