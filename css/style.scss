@@ -71,14 +71,20 @@ body {
                     padding: 10px;
                     font-size: 16px;
                     font-weight: 400;
+                    &:hover{
+                        color: $primaryColor;
+                    }
                 }
             }
             #en {
                 padding-left: 20px;
-                background-image: url('/assets/united-kingdom.png');
+                background-image: url('/assets/united-kingdom.svg');
                 background-repeat: no-repeat;
                 background-position: left center;
                 background-size: 18px 18px;
+            }
+            .active {
+                color: $primaryColor;
             }
         }
         @include mobile {
@@ -135,6 +141,12 @@ body {
         a {
             color: black;
             text-decoration: none;
+            &:hover{
+                color: $primaryColor;
+            }
+        }
+        .active {
+            color: $primaryColor;
         }
     }
     .mobile-nav {
@@ -145,6 +157,9 @@ body {
             text-decoration: none;
             color: black;
             font-size: 16px;
+            &:hover{
+                color: $primaryColor;
+            }
         }
     }
     .mobilemenu-icons {
@@ -164,12 +179,10 @@ body {
 }
 
 .mobilnost-container {
-    @include maxWidth(90%, 40px);
+    @include maxWidth(90%, 30px);
     padding-bottom: 20px;
-    @include flexAligment(center, center);
     .image-container{
         position: relative;
-        overflow: hidden;
         border-radius: 28px;
         img {
             width: 100%;
@@ -177,42 +190,47 @@ body {
             object-fit: cover;
             display: block;
         }
-    }
-    .text-side{
-        position: absolute;
-        left: 90px;
-        bottom: 70px;
-        width: min(90%, 500px);
-        color: white;
-        text-align: left;
-        #mobilnostheader{
-            font-size: clamp(15px, 4vw, 55px);
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-        #mobilnostheader2{
-            font-size: clamp(8px, 2vw, 35px);
-            font-weight: 400;
-            margin-bottom: 30px;
-            color: #D9D9D9;
-        }
-        #mobilnosttext, #mobilnosttext2{
-            font-size: clamp(6px, 2vw, 22px);
-            font-weight: 400;
-            margin-bottom: 3px;
-        }
-        .buttonmobilnost{
-            background-color: #F9F9F9;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 8px;
-            text-align: center;
-            font-size: 16px;
-            font-size: clamp(8px, 2vw, 16px);
-            margin-top: 30px;
-            font-family: inherit;
-            color: black;
-            font-weight: 500;
+        .text-side{
+            position: absolute;
+            left: 90px;
+            bottom: 70px;
+            width: min(90%, 550px);
+            color: white;
+            text-align: left;
+            #mobilnostheader{
+                font-size: clamp(15px, 4vw, 55px);
+                font-weight: 700;
+                margin-bottom: 10px;
+            }
+            #mobilnostheader2{
+                font-size: clamp(8px, 2vw, 35px);
+                font-weight: 400;
+                margin-bottom: 30px;
+                color: #D9D9D9;
+            }
+            #mobilnosttext, #mobilnosttext2{
+                font-size: clamp(6px, 2vw, 22px);
+                font-weight: 400;
+                margin-bottom: 3px;
+            }
+            .buttonmobilnost{
+                background-color: #F9F9F9;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 8px;
+                text-align: center;
+                font-size: 16px;
+                font-size: clamp(8px, 2vw, 16px);
+                margin-top: 30px;
+                font-family: inherit;
+                color: black;
+                font-weight: 500;
+            }
+            @include mobile {
+                bottom: 20px;
+                left: 20px;
+                width: 90%;
+            }
         }
         .buttons-side {
             position: absolute;
@@ -222,9 +240,9 @@ body {
             flex-direction: row;
             gap: 20px;
             @include mobile {
-                right: 20px;
-                bottom: 20px;
-                gap: 12px;
+                right: 15px;
+                bottom: 3px;
+                gap: 8px;
             }
         }
         .button-right {
@@ -243,11 +261,9 @@ body {
                 height: 80px;
             }
         }
-        @include mobile {
-            bottom: 20px;
-            left: 20px;
-            width: 90%;
-        }
+    }
+    @media (max-width: 500px) {
+        display: none;
     }
 }
 .narocniki-container {
@@ -265,6 +281,7 @@ body {
     .narocniki-slike {
         @include flexAligment(center, center);
         flex-wrap: wrap; /* prilagaja širini */
+        padding-top: 20px;
         gap: 40px;
         img {
             height: auto;
@@ -273,10 +290,11 @@ body {
     }
 }
 .column-section {
-    @include maxWidth(90%);
+    @include maxWidth(65%);
     @include flexAligment(center, row);
     flex: wrap;
     margin: 50px auto;
+    padding-top: 60px;
     gap: 50px; /* spacing med stoplci */
     .column-slika{
         flex: 1;
@@ -368,6 +386,7 @@ body {
     @include maxWidth(65%);
     max-width: 65%;
     margin: 40px auto;
+    padding-top: 20px;
     text-align: left;
     .first-row {
         display: flex;
@@ -636,7 +655,7 @@ body {
             appearance: none;
         }
         select {
-            background-image: url("/assets/arrow.png");
+            background-image: url("/assets/arrow.svg");
             background-size: 8px;
             background-repeat: no-repeat;
             background-position: calc(100% - 17px) center;
@@ -919,4 +938,16 @@ body {
         padding: 70px;
         text-align: center;
     }
+}
+input.error, select.error, textarea.error {
+    border: 1px solid red;
+}
+
+.success-message {
+    text-align: center;
+    background-color: #dff0d8;
+    color: #2A454C;
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 30px;
 }
