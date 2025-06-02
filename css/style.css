@@ -205,6 +205,12 @@ body {
   font-family: inherit;
   color: black;
   font-weight: 500;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+.mobilnost-container .image-container .text-side .buttonmobilnost:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
 }
 @media (max-width: 930px) {
   .mobilnost-container .image-container .text-side {
@@ -239,12 +245,16 @@ body {
   cursor: pointer;
   background-color: transparent;
   display: flex;
+  transition: transform 0.2s ease;
 }
 @media (max-width: 930px) {
   .mobilnost-container .image-container .button-right {
     width: 80px;
     height: 80px;
   }
+}
+.mobilnost-container .image-container .button-right:hover {
+  transform: scale(1.05);
 }
 @media (max-width: 500px) {
   .mobilnost-container {
@@ -434,7 +444,7 @@ body {
     text-align: center;
   }
 }
-.b2b-container #b2-header {
+.b2b-container #b2-header, .b2b-container #b2-header2 {
   color: #2A454C;
   font-size: 22px;
   padding-top: 20px;
@@ -515,12 +525,18 @@ body {
   margin-bottom: 10px;
   font-family: inherit;
   font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.b2b-container button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
 }
 .b2b-container .text-column span {
   color: #226776;
   font-size: 16px;
 }
-.b2b-container #dummytext {
+.b2b-container #dummytext, .b2b-container #dummytext2 {
   color: #2A454C;
   line-height: 1.4;
   padding-top: 20px;
@@ -567,6 +583,11 @@ body {
   font-family: inherit;
   color: #2A454C;
   margin-left: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.contact-container button:hover {
+  transform: scale(1.05);
 }
 .contact-container #buttonslika1 {
   width: 18px;
@@ -733,6 +754,11 @@ body {
   margin: 30px 0px;
   font-family: inherit;
   margin-left: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.contactform-container .contact-form button:hover {
+  transform: scale(1.05);
 }
 .contactform-container .contact-form .form-footer {
   display: flex;
@@ -847,6 +873,11 @@ body {
   font-weight: 500;
   height: auto;
   min-height: 50px;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+.onas-container button:hover {
+  transform: scale(1.05);
 }
 @media (max-width: 930px) {
   .onas-container {
@@ -940,12 +971,17 @@ body {
   font-family: inherit;
   margin-left: 30px;
   font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
 @media (max-width: 930px) {
   .odgovoriti-bottom button {
     max-width: 80%;
     height: auto;
   }
+}
+.odgovoriti-bottom button:hover {
+  transform: scale(1.05);
 }
 @media (max-width: 930px) {
   .odgovoriti-bottom {

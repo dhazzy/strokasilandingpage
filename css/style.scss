@@ -219,6 +219,12 @@ body {
                 font-family: inherit;
                 color: black;
                 font-weight: 500;
+                transition: transform 0.2s ease;
+                cursor: pointer;
+                &:hover {
+                    transform: scale(1.05);
+                    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+                }
             }
             @include mobile {
                 bottom: 20px;
@@ -253,6 +259,10 @@ body {
             @include mobile {
                 width: 80px;
                 height: 80px;
+            }
+            transition: transform 0.2s ease;
+            &:hover {
+                transform: scale(1.05);
             }
         }
     }
@@ -403,7 +413,7 @@ body {
             text-align: center;
         }
     }
-    #b2-header {
+    #b2-header, #b2-header2 {
         color: $secondaryColor;
         font-size: 22px;
         padding-top: 20px;
@@ -479,12 +489,19 @@ body {
         margin-bottom: 10px;
         font-family: inherit;
         font-weight: bold;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+        
+        &:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
     }
     .text-column span {
         color: #226776;
         font-size: 16px;
     }
-    #dummytext {
+    #dummytext, #dummytext2 {
         color: $secondaryColor;
         line-height: 1.4;
         padding-top: 20px;
@@ -530,6 +547,11 @@ body {
         font-family: inherit;
         color: $secondaryColor;
         margin-left: 10px;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+        &:hover {
+            transform: scale(1.05);
+        }
     }
     #buttonslika1{
         width: 18px;
@@ -678,6 +700,12 @@ body {
             margin: 30px 0px;
             font-family: inherit;
             margin-left: 10px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            
+            &:hover {
+                transform: scale(1.05);
+            }
         }
         .form-footer {
             display: flex;
@@ -783,6 +811,12 @@ body {
         font-weight: 500;
         height: auto;
         min-height: 50px;
+        transition: transform 0.2s ease;
+        cursor: pointer;
+        
+        &:hover {
+            transform: scale(1.05);
+        }
     }
     @include mobile {
         flex-direction: column;
@@ -868,9 +902,15 @@ body {
         font-family: inherit;
         margin-left: 30px;
         font-weight: 500;
+        cursor: pointer;
         @include mobile() {
             max-width: 80%;
             height: auto;
+        }
+        transition: transform 0.2s ease;
+        
+        &:hover {
+            transform: scale(1.05);
         }
     }
     @include mobile() {
