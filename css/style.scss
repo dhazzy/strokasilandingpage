@@ -38,6 +38,16 @@ $primaryFont: Outfit;
     font-size: 20px;
     cursor: pointer;
 }
+//button mixin?
+%aDefualt {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    font-weight: 400;
+    &:hover {
+        color: $primaryColor;
+    }
+}
 
 * {
     /*Resets browser default spacing */
@@ -66,14 +76,7 @@ body {
             li {
                 display: inline;
                 a {
-                    text-decoration: none;
-                    color: black;
-                    padding: 10px;
-                    font-size: 16px;
-                    font-weight: 400;
-                    &:hover{
-                        color: $primaryColor;
-                    }
+                    @extend %aDefualt;
                 }
             }
             #en {
@@ -139,11 +142,7 @@ body {
     .language-selector {
         margin-bottom: 30px;
         a {
-            color: black;
-            text-decoration: none;
-            &:hover{
-                color: $primaryColor;
-            }
+            @extend %aDefualt;
         }
         .active {
             color: $primaryColor;
@@ -154,12 +153,7 @@ body {
         gap: 15px;
         margin-bottom: 30px;
         a {
-            text-decoration: none;
-            color: black;
-            font-size: 16px;
-            &:hover{
-                color: $primaryColor;
-            }
+            @extend %aDefualt;
         }
     }
     .mobilemenu-icons {
@@ -275,7 +269,7 @@ body {
         font-size: 35px;
         margin-bottom: 30px;
         b {
-            color: #02485D;
+            color: $primaryColor;
         }
     }
     .narocniki-slike {
@@ -318,7 +312,7 @@ body {
             font-weight: 400;
             padding-bottom: 40px;
             b{
-                color: #02485D;
+                color: $primaryColor;
             }
         }
         .text-row {
@@ -333,7 +327,7 @@ body {
                 line-height: 1.5;
             }
             b {
-                color: #02485D;
+                color: $primaryColor;
                 font-size: 18px;
                 font-weight: 700;
                 padding-left: 16px;
@@ -367,7 +361,7 @@ body {
     text-align: center;
     p {
         font-size: 16px;
-        color: #2A454C;
+        color: $secondaryColor;
         line-height: 1.5;
     }
     #p3 {
@@ -378,7 +372,7 @@ body {
         margin-bottom: 20px;
         color: black;
         b {
-            color: #02485D;
+            color: $primaryColor;
         }
     }
 }
@@ -410,7 +404,7 @@ body {
         }
     }
     #b2-header {
-        color: #2A454C;
+        color: $secondaryColor;
         font-size: 22px;
         padding-top: 20px;
     }
@@ -491,12 +485,12 @@ body {
         font-size: 16px;
     }
     #dummytext {
-        color: #2A454C;
+        color: $secondaryColor;
         line-height: 1.4;
         padding-top: 20px;
         padding-bottom: 20px;
     }
-    #loremipsum1, #loremipsum2 {
+    #loremipsum1, #loremipsum2, #loremipsum3, #loremipsum4 {
         margin-top: 8px;
     }
 }
@@ -512,7 +506,7 @@ body {
             height: 49px;
         }
         p {
-            color: #2A454C;
+            color: $secondaryColor;
             padding-top: 15px;
             font-size: 16px;
             font-weight: bold;
@@ -520,7 +514,7 @@ body {
         }
     }
     #contactheader{
-        color: #2A454C;
+        color: $secondaryColor;
         padding-top: 15px;
         font-size: 35px;
     }
@@ -534,7 +528,7 @@ body {
         font-size: 16px;
         margin: 30px 0px;
         font-family: inherit;
-        color: #2A454C;
+        color: $secondaryColor;
         margin-left: 10px;
     }
     #buttonslika1{
@@ -569,7 +563,7 @@ body {
                 margin: 0;
                 font-size: 16px;
                 line-height: 1.4;
-                color: #2A454C;
+                color: $secondaryColor;
             }
             #mailicon{
                 width: 25.6px;
@@ -606,7 +600,7 @@ body {
         @include flexDirection(column);
         width: 100%;
         flex-basis: 65%;
-        background-color: #F0F3F5;
+        background-color: $containerbackgroundColor;
         border-radius: 18px;
         padding: 40px;
         padding-top: 50px;
@@ -621,7 +615,7 @@ body {
             }
         }
         input, select, textarea, #checkbox-row{
-            color: #02485D;
+            color: $primaryColor;
             font-family: inherit;
             flex: 1;
             width: auto;
@@ -637,10 +631,10 @@ body {
         select:focus,
         textarea:focus {
             outline: none; // removes the default blue glow
-            border: 1px solid #2A454C;
+            border: 1px solid $secondaryColor;
         }
         input::placeholder{
-            color: #2A454C;
+            color: $secondaryColor;
             opacity: 1;
         }
         .vat-field {
@@ -696,7 +690,7 @@ body {
             padding-left: 20px;
         }
         .form-footer-left label {
-            color: #2A454C;
+            color: $secondaryColor;
             line-height: 1.4;
             font-size: 16px;
         }
@@ -724,7 +718,7 @@ body {
     .onas {
         flex-basis: 35%;
         text-align: center;
-        background-color: #F0F3F5;
+        background-color: $containerbackgroundColor;
         border-radius: 25px;
         padding-top: 40px;
         object-fit: cover;
@@ -734,14 +728,14 @@ body {
         }
         h1 {
             font-size: 35px;
-            color: #2A454C;
+            color: $secondaryColor;
             padding-top: 20px;
             padding-bottom: 20px;
             font-weight: 700;
         }
         p {
             font-size: 16px;
-            color: #2A454C;
+            color: $secondaryColor;
             line-height: 1.2;
             font-weight: 600;
         }
@@ -785,7 +779,7 @@ body {
         margin: 30px 0px;
         font-family: inherit;
         margin-left: 10px;
-        color: #2A454C;
+        color: $secondaryColor;
         font-weight: 500;
         height: auto;
         min-height: 50px;
@@ -811,11 +805,11 @@ body {
             font-size: 35px;
         }
         p b {
-            color: #02485D
+            color: $primaryColor;
         }
         #secondp {
             font-size: 16px;
-            color: #2A454C;
+            color: $secondaryColor;
             line-height: 1.2;
             font-weight: 400;
             padding-top: 30px;
@@ -832,7 +826,7 @@ body {
         h1{
             font-size: 18px;
             font-weight: 700;
-            color: #02485D;
+            color: $primaryColor;
         }
         .question-row {
             display: flex;
@@ -860,7 +854,7 @@ body {
     background-color: #F3F4F6;
     h1 {
         font-size: 35px;
-        color: #2A454C;
+        color: $secondaryColor;
         font-weight: 700;
     }
     button {
@@ -946,7 +940,7 @@ input.error, select.error, textarea.error {
 .success-message {
     text-align: center;
     background-color: #dff0d8;
-    color: #2A454C;
+    color: $secondaryColor;
     padding: 30px;
     border-radius: 12px;
     margin-bottom: 30px;

@@ -1,4 +1,14 @@
 @charset "UTF-8";
+.mobile-menu .mobile-nav a, .mobile-menu .language-selector a, .navigation-container .navigationbar ul li a {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  font-weight: 400;
+}
+.mobile-menu .mobile-nav a:hover, .mobile-menu .language-selector a:hover, .navigation-container .navigationbar ul li a:hover {
+  color: #02485D;
+}
+
 * {
   /*Resets browser default spacing */
   margin: 0;
@@ -39,16 +49,6 @@ body {
 }
 .navigation-container .navigationbar ul li {
   display: inline;
-}
-.navigation-container .navigationbar ul li a {
-  text-decoration: none;
-  color: black;
-  padding: 10px;
-  font-size: 16px;
-  font-weight: 400;
-}
-.navigation-container .navigationbar ul li a:hover {
-  color: #02485D;
 }
 .navigation-container .navigationbar ul #en {
   padding-left: 20px;
@@ -126,13 +126,6 @@ body {
 .mobile-menu .language-selector {
   margin-bottom: 30px;
 }
-.mobile-menu .language-selector a {
-  color: black;
-  text-decoration: none;
-}
-.mobile-menu .language-selector a:hover {
-  color: #02485D;
-}
 .mobile-menu .language-selector .active {
   color: #02485D;
 }
@@ -141,14 +134,6 @@ body {
   flex-direction: column;
   gap: 15px;
   margin-bottom: 30px;
-}
-.mobile-menu .mobile-nav a {
-  text-decoration: none;
-  color: black;
-  font-size: 16px;
-}
-.mobile-menu .mobile-nav a:hover {
-  color: #02485D;
 }
 .mobile-menu .mobilemenu-icons {
   display: flex;
@@ -541,7 +526,7 @@ body {
   padding-top: 20px;
   padding-bottom: 20px;
 }
-.b2b-container #loremipsum1, .b2b-container #loremipsum2 {
+.b2b-container #loremipsum1, .b2b-container #loremipsum2, .b2b-container #loremipsum3, .b2b-container #loremipsum4 {
   margin-top: 8px;
 }
 
