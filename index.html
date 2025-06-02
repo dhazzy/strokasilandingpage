@@ -135,7 +135,7 @@
         <p>Skupina stroka.si vsebuje rešitve, ki ne bodo pozabile na nikogar, predvsem pa se bo nanje mogoče zanesti v vsakem trenutku.</p>
         <p id="p3">Vse storitve bodo ponujale visoko stopnjo prilagodljivosti - na osebni ravni in ravni različnih demografskih značilnosti posameznih trgov.</p>
     </section>
-    <section class="b2b-container">
+    <section class="b2b-container scroll-animate">
         <div class="first-row">
             <div class="wrapperslikaena">
                 <img src="./assets/b2bslika1.png" alt="B2B slika 1"/>
@@ -459,7 +459,26 @@
             return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
         }
         //validacija tel st, imena...
-        //required se zgodi pred submitom, zato se error message ne prikaze
+        //required se zgodi pred submitom na frontendu, zato se error message ne prikaze za required polja
+        document.addEventListener("DOMContentLoaded", () => {
+            const animatedElements = document.querySelectorAll('.scroll-animate');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    // je visible (30% or more) in the viewport”
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        observer.unobserve(entry.target); // Optional: animate only once
+                    }
+                });
+            }, {
+                threshold: 0.3, // trigger ko je 30% elementa visible
+            });
+            
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
     </script>
 </body>
 </html>

@@ -659,6 +659,9 @@ body {
             color: $secondaryColor;
             opacity: 1;
         }
+        input.error, select.error, textarea.error {
+            border: 1px solid red;
+        }
         .vat-field {
             max-width: 200px;
             @media (max-width: 1201px) {
@@ -730,6 +733,14 @@ body {
             flex-direction: column;
             align-items: stretch;
             width: 100%;
+        }
+        .success-message {
+            text-align: center;
+            background-color: #dff0d8;
+            color: $secondaryColor;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
         }
     }
     @media (max-width: 1201px) {
@@ -973,15 +984,18 @@ body {
         text-align: center;
     }
 }
-input.error, select.error, textarea.error {
-    border: 1px solid red;
+
+//hiden state
+.scroll-animate {
+    opacity: 0;
+    //pusheddown50pxtransform: translateY(50px);
+    //fade in ko se class changa
+    transition: all 0.9s ease-out;
 }
 
-.success-message {
-    text-align: center;
-    background-color: #dff0d8;
-    color: $secondaryColor;
-    padding: 30px;
-    border-radius: 12px;
-    margin-bottom: 30px;
+// in view state
+.scroll-animate.in-view {
+    opacity: 1;
+    // original position
+    transform: translateY(0);
 }

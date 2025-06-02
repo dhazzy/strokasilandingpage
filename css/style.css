@@ -711,6 +711,9 @@ body {
   color: #2A454C;
   opacity: 1;
 }
+.contactform-container .contact-form input.error, .contactform-container .contact-form select.error, .contactform-container .contact-form textarea.error {
+  border: 1px solid red;
+}
 .contactform-container .contact-form .vat-field {
   max-width: 200px;
 }
@@ -785,6 +788,14 @@ body {
     align-items: stretch;
     width: 100%;
   }
+}
+.contactform-container .contact-form .success-message {
+  text-align: center;
+  background-color: #dff0d8;
+  color: #2A454C;
+  padding: 30px;
+  border-radius: 12px;
+  margin-bottom: 30px;
 }
 @media (max-width: 1201px) {
   .contactform-container {
@@ -1050,15 +1061,12 @@ body {
   }
 }
 
-input.error, select.error, textarea.error {
-  border: 1px solid red;
+.scroll-animate {
+  opacity: 0;
+  transition: all 0.9s ease-out;
 }
 
-.success-message {
-  text-align: center;
-  background-color: #dff0d8;
-  color: #2A454C;
-  padding: 30px;
-  border-radius: 12px;
-  margin-bottom: 30px;
+.scroll-animate.in-view {
+  opacity: 1;
+  transform: translateY(0);
 }/*# sourceMappingURL=style.css.map */
