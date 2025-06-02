@@ -81,7 +81,7 @@ body {
             }
             #en {
                 padding-left: 20px;
-                background-image: url('./assets/united-kingdom.svg');
+                background-image: url('../assets/united-kingdom.svg');
                 background-repeat: no-repeat;
                 background-position: left center;
                 background-size: 18px 18px;
@@ -674,7 +674,7 @@ body {
             appearance: none;
         }
         select {
-            background-image: url("./assets/arrow.svg");
+            background-image: url("../assets/arrow.svg");
             background-size: 8px;
             background-repeat: no-repeat;
             background-position: calc(100% - 17px) center;
